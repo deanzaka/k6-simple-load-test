@@ -10,7 +10,9 @@ let fileContent = fs.readFileSync(filePath, 'utf-8');
 // Replace environment variable references with actual values
 fileContent = fileContent
   .replace(/process\.env\.API_URL/g, `"${process.env.API_URL}"`)
-  .replace(/process\.env\.BEARER_TOKEN/g, `"${process.env.BEARER_TOKEN}"`);
+  .replace(/process\.env\.BEARER_TOKEN/g, `"${process.env.BEARER_TOKEN}"`)
+  .replace(/process\.env\.HTTP_METHOD/g, `"${process.env.HTTP_METHOD}"`)
+  
 
 fs.writeFileSync(filePath, fileContent, 'utf-8');
 console.log(`Embedded environment variables in ${filePath}`);
